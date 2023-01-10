@@ -42,6 +42,7 @@ contract RoyaltyShare{
     function addUser(address _newMember, uint _share) external onlyAdmin{
         require(availablePercent-_share>0,"review distributed percentage");
         userShares[_newMember]=_share;
+         availablePercent-=_share;
         
     }
     function setAdminShare(uint _share) external onlyAdmin {
